@@ -2,15 +2,15 @@ package mtoy
 
 import (
 	"math/rand"
-	"time"
 )
 
 type mtoy struct {
 	answers []string
+	seed    int64
 }
 
 // New returns a reference to an mtoy instance
-func New() *mtoy {
+func New(seed int64) *mtoy {
 	return &mtoy{
 		answers: []string{
 			"Ask again later.",
@@ -34,6 +34,7 @@ func New() *mtoy {
 			"Yes definitely.",
 			"You may rely on it.",
 		},
+		seed: seed,
 	}
 }
 
@@ -48,6 +49,6 @@ func (m *mtoy) isMtoyAnswer(s string) bool {
 
 // RevealAnswer returns a ramdom string from mtoy posible list of answers.
 func (m *mtoy) RevealAnswer() string {
-	rand.Seed(time.Now().Unix())
+	rand.Seed(m.seed)
 	return m.answers[rand.Intn(len(m.answers))]
 }

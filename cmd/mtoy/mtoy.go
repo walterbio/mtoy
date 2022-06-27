@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"time"
 
 	"github.com/walterbio/mtoy"
 )
@@ -12,5 +13,5 @@ func main() {
 		fmt.Printf("Usage of mtoy:\n	mtoy \"question ?\"\n\n")
 		os.Exit(1)
 	}
-	fmt.Println(mtoy.New().RevealAnswer())
+	fmt.Println(mtoy.New(time.Now().Unix()).RevealAnswer())
 }
