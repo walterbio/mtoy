@@ -21,7 +21,7 @@ func TestRevealAnswer(t *testing.T) {
 }
 
 func TestMainFailWhenNoArgs(t *testing.T) {
-	cmd := exec.Command(os.Args[0], "-test.run=TestMainFailWhenNoArgs")
+	cmd := exec.Command(os.Args[0], "-test.run=TestMainFailWhenNoArgsXXYY")
 	t.Log(len(os.Args))
 	t.Log(os.Args)
 	err := cmd.Run()
