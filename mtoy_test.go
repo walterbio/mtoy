@@ -1,36 +1,35 @@
 package mtoy
 
 import (
+	"math/rand"
+	"reflect"
 	"testing"
+	"time"
 )
 
+var (
+	seed = time.Now().Unix()
+)
+
+func TestNew(t *testing.T) {
+	want := &mtoy{
+		answers: answers,
+		seed:    seed,
+	}
+
+	got := New(seed)
+
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got: %v, want: %v", got, want)
+	}
+}
+
 func TestRevealAnswer(t *testing.T) {
-	mtoy := New()
-	got := mtoy.RevealAnswer()
+	rand.Seed(seed)
+	want := answers[rand.Intn(len(answers))]
+	got := New(seed).RevealAnswer()
 
-	if !mtoy.isMtoyAnswer(got) {
-		t.Errorf("Got: %s, not valid mtoy answer", got)
-	}
-}
-
-func TestIsMtoyAnswer(t *testing.T) {
-	mtoy := New()
-	answer := mtoy.RevealAnswer()
-	want := true
-	got := mtoy.isMtoyAnswer(answer)
-
-	if got != want {
-		t.Errorf("want: %t, got: %t, answer: %s\n", want, got, answer)
-	}
-}
-
-func TestIsNotMtoyAnswer(t *testing.T) {
-	mtoy := New()
-	answer := "ccccccngfdrjuknlunrgcljdtnrhdifunvfhnvjbrrkn"
-	want := false
-	got := mtoy.isMtoyAnswer(answer)
-
-	if got != want {
-		t.Errorf("want: %t, got: %t, answer: %s\n", want, got, answer)
+	if want != got {
+		t.Errorf("got: %s, want: %s", got, want)
 	}
 }
