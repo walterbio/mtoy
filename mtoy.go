@@ -2,6 +2,7 @@ package mtoy
 
 import (
 	"math/rand"
+	"time"
 )
 
 var (
@@ -30,20 +31,23 @@ var (
 )
 
 type mtoy struct {
-	answers []string
-	seed    int64
+	seed int64
 }
 
-// New returns a reference to an mtoy instance
-func New(seed int64) *mtoy {
-	return &mtoy{
-		answers: answers,
-		seed:    seed,
+// to be called by the tests
+func New(seed int64) mtoy {
+	return mtoy{
+		seed: seed,
 	}
 }
 
-// RevealAnswer returns a ramdom string from mtoy posible list of answers.
-func (m *mtoy) RevealAnswer() string {
+func (m mtoy) RevealAnswer() string {
 	rand.Seed(m.seed)
-	return m.answers[rand.Intn(len(m.answers))]
+	return answers[rand.Intn(len(answers))]
+}
+
+// Default behaviour
+func RevealAnswer() string {
+	m := New(time.Now().Unix())
+	return m.RevealAnswer()
 }

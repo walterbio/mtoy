@@ -1,0 +1,5 @@
+#+title: Todo
+
+* TODO Make the answers customizable
+* TODO Test that RevealAnswer provides different answers
+* TODO Test binary ...?

@@ -1,39 +1,29 @@
-package main
+// package main
 
-import (
-	"bytes"
-	"os"
-	"os/exec"
-	"testing"
-	"time"
+// func TestRevealAnswer(t *testing.T) {
+// 	want := mtoy.RevealAnswer() + "\n"
+// 	var out bytes.Buffer
+// 	revealAnswer(&out)
+// 	got := out.String()
+// 	if got != want {
+// 		t.Errorf("got: %s, want: %s", got, want)
+// 	}
+// }
 
-	"github.com/walterbio/mtoy"
-)
+// func TestMainFailWhenNoArgs(t *testing.T) {
+// 	t.Skip("this not the way to test main()")
+// 	cmd := exec.Command(os.Args[0], "-test.run=TestMainFailWhenNoArgsXXYY")
+// 	t.Log(len(os.Args))
+// 	t.Log(os.Args)
+// 	err := cmd.Run()
+// 	e, ok := err.(*exec.ExitError)
+// 	if ok {
+// 		if code := e.ExitCode(); code != 1 {
+// 			t.Errorf("main should exit with ExitCode == 1, got: %d", code)
+// 		}
 
-func TestRevealAnswer(t *testing.T) {
-	want := mtoy.New(time.Now().Unix()).RevealAnswer() + "\n"
-	var out bytes.Buffer
-	revealAnswer(&out)
-	got := out.String()
-	if got != want {
-		t.Errorf("got: %s, want: %s", got, want)
-	}
-}
-
-func TestMainFailWhenNoArgs(t *testing.T) {
-	t.Skip("this not the way to test main()")
-	cmd := exec.Command(os.Args[0], "-test.run=TestMainFailWhenNoArgsXXYY")
-	t.Log(len(os.Args))
-	t.Log(os.Args)
-	err := cmd.Run()
-	e, ok := err.(*exec.ExitError)
-	if ok {
-		if code := e.ExitCode(); code != 1 {
-			t.Errorf("main should exit with ExitCode == 1, got: %d", code)
-		}
-
-	}
-	if !ok {
-		t.Error("main should fail when no arguments")
-	}
-}
+// 	}
+// 	if !ok {
+// 		t.Error("main should fail when no arguments")
+// 	}
+// }
