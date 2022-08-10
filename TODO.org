@@ -1,5 +1,6 @@
 #+title: Todo
 
 * DONE Make the answers customizable :feat:
+* TODO Test customizable answers :test:
 * TODO Test that RevealAnswer provides different answers :test:
 * TODO Test binary ...? :test:
