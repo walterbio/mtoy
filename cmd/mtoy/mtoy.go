@@ -4,14 +4,12 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"time"
 
 	"github.com/walterbio/mtoy"
 )
 
 func revealAnswer(w io.Writer) {
-	seed := time.Now().Unix()
-	fmt.Fprintln(w, mtoy.New(seed).RevealAnswer())
+	fmt.Fprintln(w, mtoy.RevealAnswer())
 }
 
 func main() {
