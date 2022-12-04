@@ -15,3 +15,5 @@ go install github.com/walterbio/mtoy/cmd/mtoy@latest
 ``` sh
 > mtoy "question ?"
 ```
+
+# todo
